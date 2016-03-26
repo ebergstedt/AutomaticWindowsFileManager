@@ -6,7 +6,7 @@ This could likely have been done in PowerShell, but with this project you get so
 Just add entries to your config.json and fire away.
 
 **config.json**
-```javascript
+```json
 {
   "FileTransfer": [
     {
