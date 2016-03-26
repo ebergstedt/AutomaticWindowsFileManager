@@ -5,7 +5,7 @@ This could likely have been done in PowerShell, but with this project you get so
 
 Just add entries to your config.json and fire away.
 
-The following will take all chrome downloaded files with the .mp4 extension and move to a youtube folder on google drive.
+The following will take all chrome downloaded files with the .mp4 extension and move to a youtube folder on google drive. (Obivously, you must change to your own directory structure.)
 
 **config.json**
 ```json
