@@ -18,3 +18,7 @@ Just add entries to your config.json and fire away.
   ]
 }
 ```
+
+# Todo
+
+Regex
