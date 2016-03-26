@@ -1,0 +1,10 @@
+﻿{
+  "FileTransfer": [
+    {
+      "Source": "E:\\!Chrome Download",
+      "Target": "E:\\!Google Drive\\Youtube",
+      "Extension": "mp4",
+      "Regex": ""
+    }
+  ]
+}
