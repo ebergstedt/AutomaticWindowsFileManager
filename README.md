@@ -31,6 +31,8 @@ There are three types of operations you can apply on your files:  **Move**, **Co
 
 ## Move
 
+**Move** will remove a files from the Source folder and put them in the Target folder.
+
 | Name                             | Type   | Required | Description                                                                      |
 |----------------------------------|--------|----------|----------------------------------------------------------------------------------|
 | Source                           | String | Yes      | Directory path to copy files from.                                               |
@@ -41,10 +43,12 @@ There are three types of operations you can apply on your files:  **Move**, **Co
 
 ## Copy
 
+**Copy** will copy a files from the Source folder and put the copy in the Target folder.
+
 | Name                             | Type   | Required | Description                                                                      |
 |----------------------------------|--------|----------|----------------------------------------------------------------------------------|
-| Source                           | String | Yes      | Directory path to copy files from.                                               |
-| Target                           | String | Yes      | Directory path to copy files into.                                               |
+| Source                           | String | Yes      | Directory path to move files from.                                               |
+| Target                           | String | Yes      | Directory path to move files into.                                               |
 | Regex                            | String | Yes      | Regex to identify files.                                                         |
 | ReplaceTargetFileIfAlreadyExists | Bool   | No       | If files that already exists should be deleted (in order to update them) or not. |
 | Operation                        | String | Yes      | Must be "Copy"                                                                           |
