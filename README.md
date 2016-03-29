@@ -21,9 +21,11 @@ You can use for example [Regexpal](http://www.regexpal.com/) or [Regexr](http://
 
 Example: 
 
-The first operation will take all chrome downloaded files with the .mp4 extension and move to a youtube folder on google drive. (Obivously, you must change to your own directory structure.)
+The first operation will take all chrome downloaded files with the .mp4 extension and move (cut and paste) to a youtube folder on google drive.
 
-The second operation will empty your Trash folder.
+The second operation will copy your text files from your documents folder to a backup documents folder on google drive.
+
+The third operation will empty your Trash folder.
 
 ```json
 {
