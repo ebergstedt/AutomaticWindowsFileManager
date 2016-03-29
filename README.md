@@ -96,6 +96,8 @@ The third operation will empty your Trash folder.
     }
   ]
 }
-
-
 ```
+
+# Logs
+
+Logs will be created in the /logs folder with a timestamp and a description of what the program has done.
