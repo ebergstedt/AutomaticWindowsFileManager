@@ -20,7 +20,8 @@ namespace AutomaticWindowsFileManager
 
         public void Apply([NotNull] FileOperation fileOperation)
         {
-            if (fileOperation == null) throw new ArgumentNullException(nameof(fileOperation));
+            if (fileOperation == null)
+                throw new ArgumentNullException(nameof(fileOperation));
 
             _fileOperation = fileOperation;
 
@@ -31,7 +32,10 @@ namespace AutomaticWindowsFileManager
 
             try
             {
-                files = Directory.GetFiles(_fileOperation.Source, _fileOperation.Regex, SearchOption.AllDirectories);
+                files = Directory.GetFiles(
+                                           _fileOperation.Source, 
+                                           _fileOperation.Regex, 
+                                           SearchOption.AllDirectories);
             }
             catch (Exception ex)
             {
@@ -50,9 +54,14 @@ namespace AutomaticWindowsFileManager
                 string targetFilePath = string.Empty;
 
                 if (!string.IsNullOrEmpty(_fileOperation.Target))
-                    targetFilePath = Path.Combine(_fileOperation.Target, Path.GetFileName(sourceFilePath));
+                    targetFilePath = Path.Combine(
+                                                  _fileOperation.Target, 
+                                                  Path.GetFileName(sourceFilePath));
 
-                var fileAction = FileActionFactory.GetFileAction(_fileOperation, sourceFilePath, targetFilePath);
+                var fileAction = FileActionFactory.GetFileAction(
+                                                                 _fileOperation, 
+                                                                 sourceFilePath, 
+                                                                 targetFilePath);
 
                 fileAction.Act();
             }

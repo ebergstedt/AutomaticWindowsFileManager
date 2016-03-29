@@ -11,14 +11,22 @@ namespace AutomaticWindowsFileManager.Factories
 {
     public static class FileActionFactory
     {
-        public static Interfaces.IFileAction GetFileAction(FileOperation fileOperation, string sourceFilePath, string targetFilePath)
+        public static Interfaces.IFileAction GetFileAction(
+                                                           FileOperation fileOperation, 
+                                                           string sourceFilePath, 
+                                                           string targetFilePath)
         {
             switch (fileOperation.Operation)
             {
                 case Enums.Operation.Copy:
-                    return new FileCopyAction(sourceFilePath, targetFilePath, fileOperation.ReplaceTargetFileIfAlreadyExists);
+                    return new FileCopyAction(
+                                              sourceFilePath, 
+                                              targetFilePath, 
+                                              fileOperation.ReplaceTargetFileIfAlreadyExists);
                 case Enums.Operation.Move:
-                    return new FileMoveAction(sourceFilePath, targetFilePath);
+                    return new FileMoveAction(
+                                              sourceFilePath, 
+                                              targetFilePath);
                 case Enums.Operation.Delete:
                     return new FileDeleteAction(sourceFilePath);
             }
