@@ -63,7 +63,7 @@ There are three types of operations you can apply on your files:  **Move**, **Co
 | Regex     | String | Yes      | Regex to identify files.           |
 | Operation | String | Yes      | Must be "Delete"                             |
 
-Example: 
+### Example: 
 
 The first operation will take all chrome downloaded files with the .mp4 extension and move (cut and paste) to a youtube folder on google drive.
 
