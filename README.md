@@ -27,6 +27,16 @@ You can use for example [Regexpal](http://www.regexpal.com/) or [Regexr](http://
 
 You configure the program within the **config.json** file that is in the root folder.
 
+## Copy
+
+| Name                             | Type   | Description                                                                      |
+|----------------------------------|--------|----------------------------------------------------------------------------------|
+| Source                           | String | Directory path to copy files from.                                               |
+| Target                           | String | Directory path to copy files into.                                               |
+| Regex                            | String | Regex to identify files.                                                         |
+| ReplaceTargetFileIfAlreadyExists | Bool   | If files that already exists should be deleted (in order to update them) or not. |
+| Operation                        | String | "Copy"                                                                           |
+
 Example: 
 
 The first operation will take all chrome downloaded files with the .mp4 extension and move (cut and paste) to a youtube folder on google drive.
@@ -40,15 +50,17 @@ The third operation will empty your Trash folder.
 {
   "FileOperations": [
     {
-      "Source": "E:\\Chrome Download",
-      "Target": "E:\\Google Drive\\Youtube",
+      "Source": "E:\\!Chrome Download",
+      "Target": "E:\\!Google Drive\\Youtube",
       "Regex": "*.mp4",
+      "ReplaceTargetFileIfAlreadyExists": false,
       "Operation": "Move"
     },
     {
       "Source": "E:\\Documents",
       "Target": "E:\\Google Drive\\Documents",
       "Regex": "*.txt",
+      "ReplaceTargetFileIfAlreadyExists": false,
       "Operation": "Copy"
     },
     {
@@ -58,4 +70,6 @@ The third operation will empty your Trash folder.
     }
   ]
 }
+
+
 ```
