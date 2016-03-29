@@ -27,7 +27,7 @@ You can use for example [Regexpal](http://www.regexpal.com/) or [Regexr](http://
 
 You configure the program within the **config.json** file that is in the root folder.
 
-There are three types of operations you can apply on your files.
+There are three types of operations you can apply on your files:  **Move**, **Copy** and **Delete**.
 
 ## Copy
 
