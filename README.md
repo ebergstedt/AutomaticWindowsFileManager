@@ -15,6 +15,8 @@ It can do the following operations for your files, running automatically in the 
 
 You idenfity files by filtering on your own **regex**.
 
+Configuration is done in a simple **Json** file.
+
 # Regex?
 
 Regex is used to identify text. Here's an introduction guide: [Regular Expressions - User Guide](http://www.zytrax.com/tech/web/regex.htm)
@@ -22,6 +24,8 @@ Regex is used to identify text. Here's an introduction guide: [Regular Expressio
 You can use for example [Regexpal](http://www.regexpal.com/) or [Regexr](http://www.regexr.com/) for testing your regex.
 
 # Configuration
+
+You configure the program within the **config.json** file that is in the root folder.
 
 Example: 
 
@@ -31,6 +35,7 @@ The second operation will copy your text files from your documents folder to a b
 
 The third operation will empty your Trash folder.
 
+**config.json**
 ```json
 {
   "FileOperations": [
