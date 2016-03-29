@@ -28,26 +28,31 @@ namespace AutomaticWindowsFileManager
             if (string.IsNullOrEmpty(_fileOperation.Regex)) 
                 throw new ArgumentException("Regex is missing");
 
-            string[] files;
+            IEnumerable<string> files = GetFilesWithAllowedAccess(_fileOperation.Source, _fileOperation.Regex);
+
+            ApplyActionToFiles(files);
+        }
+
+        private List<string> GetFilesWithAllowedAccess(string path, string pattern)
+        {
+            var files = new List<string>();
 
             try
             {
-                files = Directory.GetFiles(
-                                           _fileOperation.Source, 
-                                           _fileOperation.Regex, 
-                                           SearchOption.AllDirectories);
+                files.AddRange(Directory.GetFiles(path, pattern, SearchOption.TopDirectoryOnly));
+                foreach (var directory in Directory.GetDirectories(path))
+                    files.AddRange(GetFilesWithAllowedAccess(directory, pattern));
             }
             catch (Exception ex)
             {
                 _logger.Error(ex);
-                return;
             }
 
-            ApplyActionToFiles(files);
+            return files;
         }
-        
 
-        private void ApplyActionToFiles(string[] filePaths)
+
+        private void ApplyActionToFiles(IEnumerable<string> filePaths)
         {
             foreach (var sourceFilePath in filePaths)
             {
