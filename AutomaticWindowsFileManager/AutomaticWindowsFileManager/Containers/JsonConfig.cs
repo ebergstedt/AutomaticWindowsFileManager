@@ -12,6 +12,8 @@ namespace AutomaticWindowsFileManager.Containers
 
     public class FileOperation
     {
+        public bool ReplaceTargetFileIfAlreadyExists { get; set; }
+
         public string Source { get; set; }
 
         public string Target { get; set; }

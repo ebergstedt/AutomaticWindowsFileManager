@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomaticWindowsFileManager.Containers;
 using AutomaticWindowsFileManager.FileActions;
 using AutomaticWindowsFileManager.Infrastructure;
 
@@ -10,12 +11,12 @@ namespace AutomaticWindowsFileManager.Factories
 {
     public static class FileActionFactory
     {
-        public static Interfaces.IFileAction GetFileAction(Enums.Operation operation, string sourceFilePath, string targetFilePath)
+        public static Interfaces.IFileAction GetFileAction(FileOperation fileOperation, string sourceFilePath, string targetFilePath)
         {
-            switch (operation)
+            switch (fileOperation.Operation)
             {
                 case Enums.Operation.Copy:
-                    return new FileCopyAction(sourceFilePath, targetFilePath);
+                    return new FileCopyAction(sourceFilePath, targetFilePath, fileOperation.ReplaceTargetFileIfAlreadyExists);
                 case Enums.Operation.Move:
                     return new FileMoveAction(sourceFilePath, targetFilePath);
                 case Enums.Operation.Delete:

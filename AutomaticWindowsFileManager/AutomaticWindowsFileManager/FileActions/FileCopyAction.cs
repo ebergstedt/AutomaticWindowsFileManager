@@ -16,16 +16,20 @@ namespace AutomaticWindowsFileManager.FileActions
 
         private readonly string _sourceFilePath;
         private readonly string _targetFilePath;
+        private readonly bool _replaceTargetFileIfAlreadyExists;
 
         public FileCopyAction(
                               [NotNull] string sourceFilePath,
-                              [NotNull] string targetFilePath)
+                              [NotNull] string targetFilePath,
+                              bool replaceTargetFileIfAlreadyExists = false)
         {
             if (sourceFilePath == null) throw new ArgumentNullException(nameof(sourceFilePath));
             if (targetFilePath == null) throw new ArgumentNullException(nameof(targetFilePath));
 
             _sourceFilePath = sourceFilePath;
             _targetFilePath = targetFilePath;
+
+            _replaceTargetFileIfAlreadyExists = replaceTargetFileIfAlreadyExists;
         }
 
         public void Act()
@@ -35,14 +39,22 @@ namespace AutomaticWindowsFileManager.FileActions
 
             if (File.Exists(_targetFilePath))
             {
-                _logger.Info($"Target file already exists. Deleting.");
-                try
+                if (_replaceTargetFileIfAlreadyExists)
                 {
-                    File.Delete(_sourceFilePath);
+                    _logger.Info($"Target file already exists. Deleting.");
+                    try
+                    {
+                        File.Delete(_sourceFilePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Info(ex);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    _logger.Info(ex);
+                    _logger.Info($"Target file already exists. Skipping.");
+                    return;
                 }
             }                
 

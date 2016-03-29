@@ -3,9 +3,21 @@
     {
       "Source": "E:\\!Chrome Download",
       "Target": "E:\\!Google Drive\\Youtube",
-      "Extension": "mp4",
-      "Regex": "",
+      "Regex": "*.mp4",
+      "ReplaceTargetFileIfAlreadyExists": false,
       "Operation": "Move"
+    },
+    {
+      "Source": "E:\\Documents",
+      "Target": "E:\\Google Drive\\Documents",
+      "Regex": "*.txt",
+      "ReplaceTargetFileIfAlreadyExists": false,
+      "Operation": "Copy"
+    },
+    {
+      "Source": "E:\\Trash",
+      "Regex": "*",
+      "Operation": "Delete"
     }
   ]
 }

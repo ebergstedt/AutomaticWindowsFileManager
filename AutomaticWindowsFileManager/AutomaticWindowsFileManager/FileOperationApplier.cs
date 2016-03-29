@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 using AutomaticWindowsFileManager.Containers;
 using AutomaticWindowsFileManager.Factories;
 using JetBrains.Annotations;
+using NLog;
 
 namespace AutomaticWindowsFileManager
 {
 
     public class FileOperationApplier
     {
+        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+
         private FileOperation _fileOperation;
 
         public void Apply([NotNull] FileOperation fileOperation)
@@ -21,22 +24,24 @@ namespace AutomaticWindowsFileManager
 
             _fileOperation = fileOperation;
 
-            if (!string.IsNullOrEmpty(_fileOperation.Extension))
-                ApplyActionToFiles(GetFilesByExtension());
+            if (string.IsNullOrEmpty(_fileOperation.Regex)) 
+                throw new ArgumentException("Regex is missing");
 
-            if (!string.IsNullOrEmpty(_fileOperation.Regex))
-                ApplyActionToFiles(GetFilesByRegex());
-        }
+            string[] files;
 
-        private string[] GetFilesByExtension()
-        {
-            return GetFilePaths($"*.{_fileOperation.Extension}");
-        }
+            try
+            {
+                files = Directory.GetFiles(_fileOperation.Source, _fileOperation.Regex, SearchOption.AllDirectories);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex);
+                return;
+            }
 
-        private string[] GetFilesByRegex()
-        {
-            return GetFilePaths(_fileOperation.Regex);
+            ApplyActionToFiles(files);
         }
+        
 
         private void ApplyActionToFiles(string[] filePaths)
         {
@@ -47,15 +52,10 @@ namespace AutomaticWindowsFileManager
                 if (!string.IsNullOrEmpty(_fileOperation.Target))
                     targetFilePath = Path.Combine(_fileOperation.Target, Path.GetFileName(sourceFilePath));
 
-                var fileAction = FileActionFactory.GetFileAction(_fileOperation.Operation, sourceFilePath, targetFilePath);
+                var fileAction = FileActionFactory.GetFileAction(_fileOperation, sourceFilePath, targetFilePath);
 
                 fileAction.Act();
             }
-        }
-
-        private string[] GetFilePaths(string searchPattern)
-        {
-            return Directory.GetFiles(_fileOperation.Source, searchPattern, SearchOption.AllDirectories);
         }
     }
 }
