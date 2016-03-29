@@ -27,15 +27,17 @@ You can use for example [Regexpal](http://www.regexpal.com/) or [Regexr](http://
 
 You configure the program within the **config.json** file that is in the root folder.
 
+There are three types of operations you can apply on your files.
+
 ## Copy
 
-| Name                             | Type   | Description                                                                      |
-|----------------------------------|--------|----------------------------------------------------------------------------------|
-| Source                           | String | Directory path to copy files from.                                               |
-| Target                           | String | Directory path to copy files into.                                               |
-| Regex                            | String | Regex to identify files.                                                         |
-| ReplaceTargetFileIfAlreadyExists | Bool   | If files that already exists should be deleted (in order to update them) or not. |
-| Operation                        | String | "Copy"                                                                           |
+| Name                             | Type   | Required | Description                                                                      |
+|----------------------------------|--------|----------|----------------------------------------------------------------------------------|
+| Source                           | String | Yes      | Directory path to copy files from.                                               |
+| Target                           | String | Yes      | Directory path to copy files into.                                               |
+| Regex                            | String | Yes      | Regex to identify files.                                                         |
+| ReplaceTargetFileIfAlreadyExists | Bool   | No       | If files that already exists should be deleted (in order to update them) or not. |
+| Operation                        | String | Yes      | "Copy"                                                                           |
 
 Example: 
 
