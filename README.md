@@ -102,6 +102,10 @@ The third operation will empty your Trash folder.
 
 Logs will be created in the /logs folder with a timestamp and a description of what the program has done. Use this for searching for errors.
 
+# Todo
+
+Test
+
 # License
 
 The MIT License (MIT)
