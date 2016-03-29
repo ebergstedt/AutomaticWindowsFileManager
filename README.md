@@ -76,8 +76,8 @@ The third operation will empty your Trash folder.
 {
   "FileOperations": [
     {
-      "Source": "E:\\!Chrome Download",
-      "Target": "E:\\!Google Drive\\Youtube",
+      "Source": "E:\\Chrome Download",
+      "Target": "E:\\Google Drive\\Youtube",
       "Regex": "*.mp4",
       "ReplaceTargetFileIfAlreadyExists": false,
       "Operation": "Move"
