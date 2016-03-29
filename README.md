@@ -15,7 +15,7 @@ It can do the following operations for your files, running automatically in the 
 
 You idenfity files by filtering on your own **regex**.
 
-Configuration is done in a simple **Json** file.
+Configuration is done in a simple **json** file.
 
 Events are **logged** so you can identify errors and stuff that happened.
 
