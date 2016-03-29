@@ -71,6 +71,8 @@ The second operation will copy your text files from your documents folder to a b
 
 The third operation will empty your Trash folder.
 
+You can of course add more as you wish!
+
 **config.json**
 ```json
 {
