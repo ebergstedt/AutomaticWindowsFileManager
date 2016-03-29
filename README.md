@@ -17,6 +17,8 @@ You idenfity files by filtering on your own **regex**.
 
 Configuration is done in a simple **Json** file.
 
+Events are **logged** so you can identify errors and stuff that happened.
+
 # Regex?
 
 Regex is used to identify text. Here's an introduction guide: [Regular Expressions - User Guide](http://www.zytrax.com/tech/web/regex.htm)
