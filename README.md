@@ -3,7 +3,7 @@ Simple windows file management program with logging and json configuration.
 
 **Automatic Windows File Manager** is a lightweight background program that will handle day to day file transfers without the need for a monolith backup service or paid equivalent.
 
-You can either start it manually or [schedule it as a background service](http://windows.microsoft.com/en-au/windows/schedule-task#1TC=windows-7).
+You should probably [schedule it as a background service](http://windows.microsoft.com/en-au/windows/schedule-task#1TC=windows-7).
 
 # Features
 
