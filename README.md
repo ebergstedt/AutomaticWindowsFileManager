@@ -9,9 +9,9 @@ You should probably [schedule it as a background service](http://windows.microso
 
 It can do the following operations for your files, running automatically in the background if you set it as a background service.
 
-* **Move files** - "Operation" : "Move" 
-* **Copy files** - "Operation" : "Copy"
-* **Delete files** - "Operation" : "Delete"
+* **Move files** 
+* **Copy files** 
+* **Delete files** 
 
 You idenfity files by filtering on your own **regex**.
 
