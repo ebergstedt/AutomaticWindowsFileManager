@@ -35,8 +35,8 @@ There are three types of operations you can apply on your files:  **Move**, **Co
 
 | Name                             | Type   | Required | Description                                                                      |
 |----------------------------------|--------|----------|----------------------------------------------------------------------------------|
-| Source                           | String | Yes      | Directory path to copy files from.                                               |
-| Target                           | String | Yes      | Directory path to copy files into.                                               |
+| Source                           | String | Yes      | Directory path to move files from.                                               |
+| Target                           | String | Yes      | Directory path to move files into.                                               |
 | Regex                            | String | Yes      | Regex to identify files.                                                         |
 | ReplaceTargetFileIfAlreadyExists | Bool   | No       | If files that already exists should be deleted (in order to update them) or not. |
 | Operation                        | String | Yes      | Must be "Move"                                                                           |
@@ -47,8 +47,8 @@ There are three types of operations you can apply on your files:  **Move**, **Co
 
 | Name                             | Type   | Required | Description                                                                      |
 |----------------------------------|--------|----------|----------------------------------------------------------------------------------|
-| Source                           | String | Yes      | Directory path to move files from.                                               |
-| Target                           | String | Yes      | Directory path to move files into.                                               |
+| Source                           | String | Yes      | Directory path to copy files from.                                               |
+| Target                           | String | Yes      | Directory path to copy files into.                                               |
 | Regex                            | String | Yes      | Regex to identify files.                                                         |
 | ReplaceTargetFileIfAlreadyExists | Bool   | No       | If files that already exists should be deleted (in order to update them) or not. |
 | Operation                        | String | Yes      | Must be "Copy"                                                                           |
