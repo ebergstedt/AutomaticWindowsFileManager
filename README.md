@@ -13,17 +13,15 @@ It can do the following operations for your files, running automatically in the 
 * **Copy files** 
 * **Delete files** 
 
-You idenfity files by filtering on your own **regex**.
+You idenfity files by filtering on your own **globpattern**.
 
 Configuration is done in a simple **json** file.
 
 Events are **logged** so you can identify errors and stuff that happened.
 
-# Regex?
+# Glob?
 
-Regex is used to identify text. Here's an introduction guide: [Regular Expressions - User Guide](http://www.zytrax.com/tech/web/regex.htm)
-
-You can use for example [Regexpal](http://www.regexpal.com/) or [Regexr](http://www.regexr.com/) for testing your regex.
+Glob is used to identify files, and is a simplification of regex. Here's an introduction guide: [glob (programming)](https://en.wikipedia.org/wiki/Glob_(programming))
 
 # Configuration
 
@@ -39,7 +37,7 @@ There are three types of operations you can apply on your files:  **Move**, **Co
 |----------------------------------|--------|----------|----------------------------------------------------------------------------------|
 | Source                           | String | Yes      | Directory path to move files from.                                               |
 | Target                           | String | Yes      | Directory path to move files into.                                               |
-| Regex                            | String | Yes      | Regex to identify files.                                                         |
+| GlobPattern                            | String | Yes      | GlobPattern to identify files.                                                         |
 | ReplaceTargetFileIfAlreadyExists | Bool   | No       | If files that already exists should be deleted (in order to update them) or not. Default value is **false**. |
 | Operation                        | String | Yes      | Must be "Move"                                                                           |
 
@@ -51,7 +49,7 @@ There are three types of operations you can apply on your files:  **Move**, **Co
 |----------------------------------|--------|----------|----------------------------------------------------------------------------------|
 | Source                           | String | Yes      | Directory path to copy files from.                                               |
 | Target                           | String | Yes      | Directory path to copy files into.                                               |
-| Regex                            | String | Yes      | Regex to identify files.                                                         |
+| GlobPattern                            | String | Yes      | GlobPattern to identify files.                                                         |
 | ReplaceTargetFileIfAlreadyExists | Bool   | No       | If files that already exists should be deleted (in order to update them) or not. Default value is **false**. |
 | Operation                        | String | Yes      | Must be "Copy"                                                                           |
 
@@ -62,7 +60,7 @@ There are three types of operations you can apply on your files:  **Move**, **Co
 | Name      | Type   | Required | Description                        |
 |-----------|--------|----------|------------------------------------|
 | Source    | String | Yes      | Directory path to delete files from. |
-| Regex     | String | Yes      | Regex to identify files.           |
+| GlobPattern     | String | Yes      | GlobPattern to identify files.           |
 | Operation | String | Yes      | Must be "Delete"                             |
 
 ### Example: 
@@ -82,20 +80,20 @@ You can of course add more as you wish!
     {
       "Source": "E:\\Chrome Download",
       "Target": "E:\\Google Drive\\Youtube",
-      "Regex": "*.mp4",
+      "GlobPattern": "*.mp4",
       "ReplaceTargetFileIfAlreadyExists": false,
       "Operation": "Move"
     },
     {
       "Source": "E:\\Documents",
       "Target": "E:\\Google Drive\\Documents",
-      "Regex": "*.txt",
+      "GlobPattern": "*.txt",
       "ReplaceTargetFileIfAlreadyExists": false,
       "Operation": "Copy"
     },
     {
       "Source": "E:\\Trash",
-      "Regex": "*",
+      "GlobPattern": "*",
       "Operation": "Delete"
     }
   ]
