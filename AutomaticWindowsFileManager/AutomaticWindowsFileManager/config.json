@@ -1,22 +1,22 @@
 ﻿{
   "FileOperations": [
     {
-      "Source": "E:\\!Chrome Download",
-      "Target": "E:\\!Google Drive\\Youtube",
-      "Regex": "*.mp4",
+      "Source": "E:\\Chrome Download",
+      "Target": "E:\\Google Drive\\Youtube",
+      "GlobPattern": "*.mp4",
       "ReplaceTargetFileIfAlreadyExists": false,
       "Operation": "Move"
     },
     {
       "Source": "E:\\Documents",
       "Target": "E:\\Google Drive\\Documents",
-      "Regex": "*.txt",
+      "GlobPattern": "*.txt",
       "ReplaceTargetFileIfAlreadyExists": false,
       "Operation": "Copy"
     },
     {
       "Source": "E:\\Trash",
-      "Regex": "*",
+      "GlobPattern": "*",
       "Operation": "Delete"
     }
   ]

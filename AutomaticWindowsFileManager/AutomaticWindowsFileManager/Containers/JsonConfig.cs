@@ -20,7 +20,7 @@ namespace AutomaticWindowsFileManager.Containers
 
         public string Extension { get; set; }
 
-        public string Regex { get; set; }
+        public string GlobPattern { get; set; }
 
         [JsonConverter(typeof(StringEnumConverter))]
         public Enums.Operation Operation { get; set; }

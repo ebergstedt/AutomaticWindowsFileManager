@@ -25,10 +25,10 @@ namespace AutomaticWindowsFileManager
 
             _fileOperation = fileOperation;
 
-            if (string.IsNullOrEmpty(_fileOperation.Regex)) 
-                throw new ArgumentException("Regex is missing");
+            if (string.IsNullOrEmpty(_fileOperation.GlobPattern)) 
+                throw new ArgumentException("GlobPattern is missing");
 
-            IEnumerable<string> files = GetFilesWithAllowedAccess(_fileOperation.Source, _fileOperation.Regex);
+            IEnumerable<string> files = GetFilesWithAllowedAccess(_fileOperation.Source, _fileOperation.GlobPattern);
 
             ApplyActionToFiles(files);
         }
